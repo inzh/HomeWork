@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A4</title>
+    <style>
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #fafafa;
+        font: 12pt "微软雅黑";
+      }
+      .clearfix:after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+      }
+      .clearfix {
+        *zoom: 1;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+      }
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 10mm auto;
+        background: white;
+        border: 1px solid black;
+      }
+      .subpage {
+        /* padding: 1cm; */
+        /* border: 1px red solid; */
+        margin: 3mm 20mm;
+      }
+      .subpage p {
+        font-size: 10pt;
+      }
+      .subpage .practice {
+        padding-left: 2mm;
+        margin-top: 3mm;
+        margin-bottom: 4mm;
+      }
+      .subpage .practice ul li {
+        display: block;
+        float: left;
+        width: 25%;
+        height: 15mm;
+        list-style: none;
+        font-weight: 700;
+        font-size: 11pt;
+        line-height: 15mm;
+      }
+      .line1 {
+        padding-top: 14mm;
+        margin-left: 117mm;
+        font-weight: 600;
+      }
+      .line2 {
+        padding-top: 3mm;
+        margin-left: 117mm;
+        font-weight: 600;
+      }
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      @media print {
+        html,
+        body {
+          width: 210mm;
+          height: 297mm;
+        }
+        .page {
+          margin: 0;
+          position: relative;
+          border: initial;
+          border-radius: initial;
+          width: initial;
+          min-height: initial;
+          box-shadow: initial;
+          background: initial;
+          page-break-after: always;
+        }
+      }
+      .subpage .practice2 ul li {
+        display: block;
+        margin-top: 6mm;
+        padding-right: 10mm;
+        float: left;
+        width: 25%;
+        font-size: 12pt;
+        list-style: none;
+        font-weight: 700;
+      }
+
+      .subpage .practice2 ul li .top {
+        height: 10mm;
+        width: 100%;
+        padding-left: 8mm;
+        line-height: 10mm;
+      }
+
+      .subpage .practice2 ul li .middle {
+        position: relative;
+        height: 8mm;
+        width: 100%;
+        padding-left: 8mm;
+        padding-bottom: 9mm;
+        line-height: 8mm;
+        border-bottom: 2px solid #000;
+      }
+      .subpage .practice2 ul li .middle span {
+        position: absolute;
+        top: -0.2mm;
+        left: 1mm;
+        font-size: 15pt;
+        font-weight: 400;
+      }
+      .subpage .practice2 ul li .down div {
+        float: right;
+        margin-top: 1mm;
+        margin-right: 1mm;
+        width: 8mm;
+        height: 8mm;
+        border: 2px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="line1">
+        ______月______日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓名：______________
+      </div>
+      <div class="line2">
+        ______分______秒&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;班级：______________
+      </div>
+      <div class="subpage">
+        <h3>口算练习</h3>
+        <p>
+          ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        </p>
+        <div class="practice clearfix">
+          <ul>
+            {% for item in practice1 %} {{ item }} {% endfor%}
+          </ul>
+        </div>
+        <h3>竖式计算</h3>
+        <p>
+          ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        </p>
+        <div class="practice2">
+          <ul>
+            {% for item in practice2 %} {{ item }} {% endfor%}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
